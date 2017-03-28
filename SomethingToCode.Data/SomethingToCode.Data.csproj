@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\SCContext.cs" />
     <Compile Include="Mapping\Articles\ArticleCategoryMapping.cs" />
     <Compile Include="Mapping\Articles\ArticleMapping.cs" />
     <Compile Include="Mapping\Articles\ArticleTagMapping.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Mapping\Users\UserSkillMapping.cs" />
     <Compile Include="Mapping\Users\UserWorkMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
