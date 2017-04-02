@@ -19,3 +19,8 @@ I am choosing the Microsoft Stack because I am good at it :)
 # Environment & Tools:
 - Microsoft Visual Studio 2013/2015 Community+
 - MS SQL Server 2012/2014 with Management Studio  
+
+# GIT Workflow and Branching model
+We will follow the Vincent Driessen branching model because I personally used this model and its really successful. For this I really appreciated Vincent Driessen to such good GIT workflow.
+
+[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model)
