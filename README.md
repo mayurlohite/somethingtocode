@@ -6,7 +6,7 @@ At first I started somethingtocode.com blog to help developers who are recently 
 
 We will start first with simple article posting and later we will go to Q/A as well as social network of programmers. So developers life will be close to each other.
 
-I need the support of developers to make this vision  into reality. So contributions to community is welcome. 
+I need support from you guys to make this vision into reality. Anyone can contribute, If you are designer help us to make better design, If you are developer help us to build platform, If you are tester help us to maintain the quality of code. 
 
 
 # Platform
@@ -19,8 +19,3 @@ I am choosing the Microsoft Stack because I am good at it :)
 # Environment & Tools:
 - Microsoft Visual Studio 2013/2015 Community+
 - MS SQL Server 2012/2014 with Management Studio  
-
-# GIT Workflow and Branching model
-We will follow the Vincent Driessen branching model because I personally used this model and its really successful. For this I really appreciated Vincent Driessen to such good GIT workflow.
-
-[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model)
