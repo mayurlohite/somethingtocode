@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
