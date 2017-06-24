@@ -12,7 +12,6 @@ namespace SomethingToCode.Core.Domain.Users
     public class User : BaseEntity
     {
         private ICollection<Category> _categories;
-
         private ICollection<Article> _articles { get; set; }
         private ICollection<Tag> _tags { get; set; }
         private ICollection<ArticleComment> _articleComments { get; set; }

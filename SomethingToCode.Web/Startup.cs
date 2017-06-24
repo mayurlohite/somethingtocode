@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using System.Web.Helpers;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using SomethingToCode.Web.App_Start;
 
 [assembly: OwinStartup(typeof(SomethingToCode.Web.Startup))]
 
@@ -17,6 +18,7 @@ namespace SomethingToCode.Web
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigureAuth(app);
+            app.UseUnity();
         }
 
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
