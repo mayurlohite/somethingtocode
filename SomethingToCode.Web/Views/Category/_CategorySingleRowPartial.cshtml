@@ -1,0 +1,31 @@
+﻿@model  SomethingToCode.Web.Models.Masters.Category.CategoryListModel
+
+@if (Model.Categories != null && Model.Categories.Count > 0)
+{
+    foreach (var item in Model.Categories)
+    {
+        <tr>
+
+            <td>@item.CategoryName</td>
+
+            <td>@string.Format("{0:dd MMM, yyyy}", item.Created)</td>
+            <td>
+
+                @Html.Raw(item.IsEnable == true ? "<span class='label label-success'>Enable</span>" : "<span class='label label-danger'>Disable</span>")
+
+            </td>
+            <td>
+
+                <a id="EditData" href="@Url.Content("~/Category/Edit/" + @item.CategoryID)" class="btn btn-primary" title="Edit Category"><i class="fa fa-pencil-square-o"></i></a>
+                @using (Html.BeginForm("Delete", "Category", new { @id = item.CategoryID }, FormMethod.Post, new { @style = "display:inline;" }))
+                {
+
+                    <button onclick="return confirm('Are you sure you want to delete category ?');" class="btn btn-danger" type="submit">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                }
+            </td>
+
+        </tr>
+    }
+}

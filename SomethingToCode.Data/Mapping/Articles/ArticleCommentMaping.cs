@@ -19,7 +19,9 @@ namespace SomethingToCode.Data.Mapping.Articles
 
             HasRequired(ac => ac.User)
                .WithMany(u => u.ArticleComments)
-               .HasForeignKey(ac => ac.UserID);
+               .HasForeignKey(ac => ac.UserID)
+               .WillCascadeOnDelete(false);
+              
 
             HasRequired(ac => ac.Article)
               .WithMany(a => a.ArticleComments)

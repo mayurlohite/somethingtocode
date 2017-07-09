@@ -1,4 +1,6 @@
-﻿using SomethingToCode.Core.Domain.Users;
+﻿using SomethingToCode.Core.Domain.Masters.Catelog;
+using SomethingToCode.Core.Domain.Masters.Tag;
+using SomethingToCode.Core.Domain.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,9 +13,9 @@ namespace SomethingToCode.Core.Domain.Articles
     public class Article : BaseEntity
     {
 
-        private ICollection<ArticleTag> _articleTags { get; set; }
+        private ICollection<Tag> _tags { get; set; }
         private ICollection<ArticleComment> _articleComments { get; set; }
-        private ICollection<ArticleCategory> _articleCategories { get; set; }
+        private ICollection<Category> _categories { get; set; }
 
 
         public long ArticleID { get; set; }
@@ -32,10 +34,10 @@ namespace SomethingToCode.Core.Domain.Articles
 
         public virtual User User { get; set; }
 
-        public virtual ICollection<ArticleTag> ArticleTags
+        public virtual ICollection<Tag> Tags
         {
-            get { return _articleTags ?? (_articleTags = new List<ArticleTag>()); }
-            protected set { _articleTags = value; }
+            get { return _tags ?? (_tags = new List<Tag>()); }
+            protected set { _tags = value; }
         }
 
         public virtual ICollection<ArticleComment> ArticleComments
@@ -44,10 +46,10 @@ namespace SomethingToCode.Core.Domain.Articles
             protected set { _articleComments = value; }
         }
 
-        public virtual ICollection<ArticleCategory> ArticleCategories
+        public virtual ICollection<Category> Categories
         {
-            get { return _articleCategories ?? (_articleCategories = new List<ArticleCategory>()); }
-            protected set { _articleCategories = value; }
+            get { return _categories ?? (_categories = new List<Category>()); }
+            protected set { _categories = value; }
         }
     }
 }

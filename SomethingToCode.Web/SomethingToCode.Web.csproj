@@ -266,6 +266,14 @@
     <Reference Include="Owin.Security.Providers.Yammer">
       <HintPath>..\packages\Owin.Security.Providers.Yammer.2.13.0\lib\net45\Owin.Security.Providers.Yammer.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PreMailer.Net">
       <HintPath>..\packages\PreMailer.Net.1.2.7\lib\net40\PreMailer.Net.dll</HintPath>
     </Reference>
@@ -387,6 +395,7 @@
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\Emails\resetpassword.html" />
     <Content Include="Content\Emails\signup.html" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Content\plugins\bootstrap-slider\slider.css" />
     <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -1334,6 +1343,7 @@
     <Content Include="Content\plugins\tinymce_old\skins\lightgray\skin.min.css" />
     <Content Include="Content\plugins\tinymce_old\themes\modern\theme.min.js" />
     <Content Include="Content\plugins\tinymce_old\tinymce.min.js" />
+    <Content Include="Content\plugins\waypoints\waypoints.min.js" />
     <Content Include="Content\Tags\css\arrow.png" />
     <Content Include="Content\Tags\css\close.png" />
     <Content Include="Content\Tags\css\textext.core.css" />
@@ -1357,13 +1367,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CustomSCViewEngine.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Factories\CategoryModelFactory.cs" />
+    <Compile Include="Factories\ICategoryModelFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CommonHelper.cs" />
+    <Compile Include="Helpers\Pager.cs" />
+    <Compile Include="Models\Masters\Catelog\CategoryListModel.cs" />
+    <Compile Include="Models\Masters\Catelog\CategoryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1427,6 +1445,17 @@
     <Content Include="Content\Tags\stylus\_common.styl" />
     <Content Include="Views\Account\Signin.cshtml" />
     <Content Include="Views\Account\Signup.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\Partials\_BeforeLoginPartial.cshtml" />
+    <Content Include="Views\Shared\Partials\_AfterLoginPartial.cshtml" />
+    <Content Include="Views\Shared\Widgets\_SearchWidget.cshtml" />
+    <Content Include="Views\Shared\Widgets\_PopularTagWidget.cshtml" />
+    <Content Include="Views\Shared\Widgets\_NewsletterWidget.cshtml" />
+    <Content Include="Views\Shared\Partials\_SingleListViewPartial.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\_CategorySingleRowPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1436,7 +1465,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
@@ -1447,6 +1475,10 @@
     <ProjectReference Include="..\SomethingToCode.Data\SomethingToCode.Data.csproj">
       <Project>{e90cc9a2-8330-4723-a7f3-249926c8eeb1}</Project>
       <Name>SomethingToCode.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomethingToCode.DbServices\SomethingToCode.DbServices.csproj">
+      <Project>{dc5f45be-02f3-41ca-87e2-3e083f6165bb}</Project>
+      <Name>SomethingToCode.DbServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

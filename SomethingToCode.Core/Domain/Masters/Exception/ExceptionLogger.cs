@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SomethingToCode.Core.Domain.Masters
+namespace SomethingToCode.Core.Domain.Masters.Exception
 {
     [Table("ExceptionLogger")]
     public class ExceptionLogger : BaseEntity

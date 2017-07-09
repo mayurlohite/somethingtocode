@@ -1,0 +1,48 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model SocialNetwork.ViewModel.HomePageViewModel
+@using SocialNetwork.Common;
+
+@{
+    ViewBag.Title = "Articles by category";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-8">
+
+        @if (Model.ArticleList.Count > 0)
+        { 
+            foreach (var item in Model.ArticleList)
+            {
+
+                Html.RenderPartial("_MasterArticleListView", item);
+
+            }
+            @Html.PagedListPager(Model.ArticleList, Page => Url.Action("index", new { Page }),
+                             new PagedListRenderOptions { DisplayPageCountAndCurrentLocation = true }
+                    )
+        }
+        else
+        {
+            <h3 class="box-title">No Article found !!!</h3>
+        }
+        </div><!-- /.col -->
+
+
+       
+
+        <div class="col-md-4">
+           
+        @{ Html.RenderPartial("_FrontRightBarLayout", Model);}
+
+
+
+
+        </div><!-- /.col -->
+
+        
+    </div><!-- /.row -->
+</section><!-- /.content -->

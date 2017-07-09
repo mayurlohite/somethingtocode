@@ -7,14 +7,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SomethingToCode.Core.Domain.Masters
+namespace SomethingToCode.Core.Domain.Masters.Catelog
 {
 
     public class Category : BaseEntity
     {
-        private ICollection<ArticleCategory> _articleCategories;
+       
+        private ICollection<Article> _articles;
 
-        public long CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         public long UserID { get; set; }
        
@@ -24,13 +25,13 @@ namespace SomethingToCode.Core.Domain.Masters
 
         public string UrlSlug { get; set; }
 
-        public virtual User user { get; set; }
+        public virtual User User { get; set; }
 
 
-        public virtual ICollection<ArticleCategory> ArticleCategories
+        public virtual ICollection<Article> Articles
         {
-            get { return _articleCategories ?? (_articleCategories = new List<ArticleCategory>()); }
-            protected set { _articleCategories = value; }
+            get { return _articles ?? (_articles = new List<Article>()); }
+            protected set { _articles = value; }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SomethingToCode.Core.Domain.Masters;
+﻿using SomethingToCode.Core.Domain.Articles;
+using SomethingToCode.Core.Domain.Masters.Catelog;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SomethingToCode.Data.Mapping.Masters
+namespace SomethingToCode.Data.Mapping.Masters.Catelog
 {
     public class CategoryMapping : EntityTypeConfiguration<Category>
     {
@@ -18,9 +19,22 @@ namespace SomethingToCode.Data.Mapping.Masters
             Property(c => c.UrlSlug).IsRequired().HasMaxLength(155);
             Property(c => c.Description).IsRequired().HasMaxLength(255);
 
-            HasRequired(c => c.user)
+            HasRequired(c => c.User)
                 .WithMany(u => u.Categories)
-                .HasForeignKey(c => c.UserID);
+                .HasForeignKey(c => c.UserID)
+                .WillCascadeOnDelete(false);
+
+            HasMany<Article>(a => a.Articles)
+               .WithMany(c => c.Categories)
+                .Map(ac =>
+                {
+                    ac.MapLeftKey("CategoryID"); 
+                    ac.MapRightKey("ArticleID");
+                    ac.ToTable("ArticleCategories");
+                });
+
+
+
         }
     }
 }

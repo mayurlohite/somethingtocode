@@ -19,6 +19,8 @@ namespace SomethingToCode.Web
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigureAuth(app);
             app.UseUnity();
+           
+
         }
 
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
