@@ -31,7 +31,7 @@ namespace SomethingToCode.Web.Controllers
 
         public ActionResult List(int? page, string categoryName = "", long userID = 0, bool? IsEnable = null)
         {
-            var model = _categoryModelFactory.PrepareBlogPostListModel(page);
+            var model = _categoryModelFactory.PrepareBlogPostListModel(page,userID,categoryName,IsEnable);
             return PartialView("_CategorySingleRowPartial", model);
         }
 

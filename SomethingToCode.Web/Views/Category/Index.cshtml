@@ -5,6 +5,8 @@
     ViewBag.Title = "Manage Categories";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
+    string categoryName = Convert.ToString(Request.QueryString["categoryName"]);
+    
 }
 
 <!-- Content Header (Page header) -->
@@ -39,8 +41,8 @@
             <label for="email">Choose Status : &nbsp;&nbsp;&nbsp;</label>
             <select class="form-control" name="IsEnable" id="IsEnable">
                 <option value="">Please Choose Status </option>
-                <option value="true">Enable</option>
-                <option value="false">Disable</option>
+                <option value="1">Enable</option>
+                <option value="0">Disable</option>
             </select>
         </div>
 

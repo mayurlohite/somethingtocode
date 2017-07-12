@@ -19,12 +19,12 @@ namespace SomethingToCode.Web.Factories
             _categoryService = categoryService;
         }
 
-        public CategoryListModel PrepareBlogPostListModel(int? page)
+        public CategoryListModel PrepareBlogPostListModel(int? page, long userID = 0, string categoryName = "", bool? IsEnable = null)
         {
 
             var model = new CategoryListModel();
 
-            IPagedList<Category> categories = _categoryService.GetAllCategories(page);
+            IPagedList<Category> categories = _categoryService.GetCategoriesBySearchCriteria(page,userID,categoryName,IsEnable);
 
             model.Categories = categories
                 .Select(x =>
