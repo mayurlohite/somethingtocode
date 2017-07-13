@@ -19,7 +19,7 @@ namespace SomethingToCode.Web.Factories
             _categoryService = categoryService;
         }
 
-        public CategoryListModel PrepareBlogPostListModel(int? page, long userID = 0, string categoryName = "", bool? IsEnable = null)
+        public CategoryListModel PrepareCategoryListModel(int? page, long userID = 0, string categoryName = "", bool? IsEnable = null)
         {
 
             var model = new CategoryListModel();
@@ -30,7 +30,7 @@ namespace SomethingToCode.Web.Factories
                 .Select(x =>
                 {
                     var categoryModel = new CategoryModel();
-                    PrepareBlogPostModel(categoryModel, x);
+                    PrepareCategoryModel(categoryModel, x);
                     return categoryModel;
                 }).ToList();
 
@@ -39,7 +39,7 @@ namespace SomethingToCode.Web.Factories
             return model;
         }
 
-        public void PrepareBlogPostModel(CategoryModel model, Category category)
+        public void PrepareCategoryModel(CategoryModel model, Category category)
         {
             if (model == null)
                 throw new ArgumentNullException("model");
@@ -52,6 +52,22 @@ namespace SomethingToCode.Web.Factories
             model.Description = category.Description;
             model.IsEnable = category.IsEnable;
             model.Created = category.Created;            
+        }
+
+        public Category PrepareCategoryModel(CategoryModel category)
+        {
+            if (category == null)
+                throw new ArgumentNullException("category");
+
+            Category model = new Category();
+
+            model.CategoryID = category.CategoryID;
+            model.CategoryName = category.CategoryName;
+            model.Description = category.Description;
+            model.IsEnable = category.IsEnable;
+            model.Created = category.Created;
+
+            return model;
         }
 
     }

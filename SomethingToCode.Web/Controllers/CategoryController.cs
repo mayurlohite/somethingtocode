@@ -1,8 +1,10 @@
 ﻿using SomethingToCode.Core.Domain.Masters;
+using SomethingToCode.Core.Domain.Masters.Catelog;
 using SomethingToCode.Core.Helpers;
 using SomethingToCode.DbServices.Masters;
 using SomethingToCode.Web.Factories;
 using SomethingToCode.Web.Helpers;
+using SomethingToCode.Web.Models.Masters.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +33,7 @@ namespace SomethingToCode.Web.Controllers
 
         public ActionResult List(int? page, string categoryName = "", long userID = 0, bool? IsEnable = null)
         {
-            var model = _categoryModelFactory.PrepareBlogPostListModel(page,userID,categoryName,IsEnable);
+            var model = _categoryModelFactory.PrepareCategoryListModel(page, userID, categoryName, IsEnable);
             return PartialView("_CategorySingleRowPartial", model);
         }
 
@@ -45,11 +47,19 @@ namespace SomethingToCode.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int id=0)
+        public ActionResult Create(CategoryModel category)
         {
-           
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            
+            Category model = _categoryModelFactory.PrepareCategoryModel(category);
+            _categoryService.Insert(model);
 
-            return View();
+            TempData["message"] = CommonHelper.GenerateMessage("Category Added Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
+
+            return RedirectToAction("Create", "Category");
         }
 
         [HttpGet]

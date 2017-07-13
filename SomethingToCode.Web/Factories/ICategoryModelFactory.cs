@@ -11,7 +11,8 @@ namespace SomethingToCode.Web.Factories
 {
     public partial interface ICategoryModelFactory
     {
-        CategoryListModel PrepareBlogPostListModel(int? page, long userID = 0, string categoryName = "", bool? IsEnable = null);
-        void PrepareBlogPostModel(CategoryModel model, Category category);
+        CategoryListModel PrepareCategoryListModel(int? page, long userID = 0, string categoryName = "", bool? IsEnable = null);
+        void PrepareCategoryModel(CategoryModel model, Category category);
+        Category PrepareCategoryModel(CategoryModel category);
     }
 }
