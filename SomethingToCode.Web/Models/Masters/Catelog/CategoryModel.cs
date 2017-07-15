@@ -1,10 +1,13 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using SomethingToCode.Web.Validators.Masters.Catelog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace SomethingToCode.Web.Models.Masters.Category
 {
+    [Validator(typeof(CategoryModelValidator))]
     public class CategoryModel
     {
         public int CategoryID { get; set; }

@@ -1,4 +1,5 @@
-﻿using SomethingToCode.Web.App_Start;
+﻿using FluentValidation.Mvc;
+using SomethingToCode.Web.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SomethingToCode.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ViewEngines.Engines.Add(new CustomSCViewEngine());
-
+            FluentValidationModelValidatorProvider.Configure();
 
             //disable "X-AspNetMvc-Version" header name
             MvcHandler.DisableMvcResponseHeader = true;
