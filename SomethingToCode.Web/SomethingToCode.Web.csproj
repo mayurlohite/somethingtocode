@@ -1380,6 +1380,7 @@
     </Compile>
     <Compile Include="Helpers\CommonHelper.cs" />
     <Compile Include="Helpers\Pager.cs" />
+    <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Models\Masters\Catelog\CategoryListModel.cs" />
     <Compile Include="Models\Masters\Catelog\CategoryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

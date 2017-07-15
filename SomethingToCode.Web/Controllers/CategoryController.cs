@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SomethingToCode.Web.Extensions;
 
 namespace SomethingToCode.Web.Controllers
 {
@@ -40,22 +41,22 @@ namespace SomethingToCode.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-           
 
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CategoryModel category)
+        public ActionResult Create(CategoryModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            
-            Category model = _categoryModelFactory.PrepareCategoryModel(category);
-            _categoryService.Insert(model);
+
+            Category category = model.ToEntity();
+            category.Created = DateTime.UtcNow;
+            _categoryService.Insert(category);
 
             TempData["message"] = CommonHelper.GenerateMessage("Category Added Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
 
@@ -63,20 +64,44 @@ namespace SomethingToCode.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(long id = 0)
+        public ActionResult Edit(int id = 0)
         {
-           
+            if (id == 0)
+                return RedirectToAction("Index");
 
-            return View();
+            var category = _categoryService.GetCategoryById(id);
+            if (category == null)
+                return RedirectToAction("Index");
+
+            var model = category.ToModel();
+
+            return View(model);
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit()
+        public ActionResult Edit(CategoryModel model, int id=0 )
         {
+            if (id == 0)
+                return RedirectToAction("Index");
 
-            return View();
+            var category = _categoryService.GetCategoryById(id);
+            if (category == null)
+                return RedirectToAction("Index");
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            category = model.ToEntity(category);
+            category.Modified = DateTime.UtcNow;
+            _categoryService.Update(category);
+
+            TempData["message"] = CommonHelper.GenerateMessage("Category Updated Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
+
+            return RedirectToAction("Create", "Category");
         }
 
         [HttpPost]

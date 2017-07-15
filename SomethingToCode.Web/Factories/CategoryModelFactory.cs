@@ -54,21 +54,8 @@ namespace SomethingToCode.Web.Factories
             model.Created = category.Created;            
         }
 
-        public Category PrepareCategoryModel(CategoryModel category)
-        {
-            if (category == null)
-                throw new ArgumentNullException("category");
-
-            Category model = new Category();
-
-            model.CategoryID = category.CategoryID;
-            model.CategoryName = category.CategoryName;
-            model.Description = category.Description;
-            model.IsEnable = category.IsEnable;
-            model.Created = category.Created;
-
-            return model;
-        }
+       
+       
 
     }
 }

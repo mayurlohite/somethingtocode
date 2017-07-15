@@ -16,6 +16,9 @@ namespace SomethingToCode.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ViewEngines.Engines.Add(new CustomSCViewEngine());
 
+
+            //disable "X-AspNetMvc-Version" header name
+            MvcHandler.DisableMvcResponseHeader = true;
         }
     }
 }
