@@ -18,6 +18,7 @@ namespace SomethingToCode.Data.Mapping.Masters.Catelog
             Property(c => c.CategoryName).IsRequired().HasMaxLength(155);
             Property(c => c.UrlSlug).IsRequired().HasMaxLength(155);
             Property(c => c.Description).IsRequired().HasMaxLength(255);
+            Property(c => c.CategoryImage).IsRequired().HasMaxLength(50);
 
             HasRequired(c => c.User)
                 .WithMany(u => u.Categories)

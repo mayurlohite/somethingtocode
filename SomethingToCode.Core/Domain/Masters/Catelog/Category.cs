@@ -25,6 +25,8 @@ namespace SomethingToCode.Core.Domain.Masters.Catelog
 
         public string UrlSlug { get; set; }
 
+        public string CategoryImage { get; set; }
+
         public virtual User User { get; set; }
 
 

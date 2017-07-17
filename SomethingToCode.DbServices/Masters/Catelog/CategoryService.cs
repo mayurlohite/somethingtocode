@@ -30,6 +30,24 @@ namespace SomethingToCode.DbServices.Masters
 
         #endregion
 
+        #region Utilities
+        public string GetUniqueSlugFromName(string categoryName)
+        {
+            int i = 1;
+            string urlSlug = GlobalCommonHelper.GetSlugURLFromString(categoryName);
+            Category catSlug = GetCategoryBySlugUrl(urlSlug);
+            while (catSlug != null)
+            {
+                string slug = urlSlug + "-" + i;
+                catSlug = GetCategoryBySlugUrl(slug);
+                i++;
+            }
+
+            return urlSlug + "-" + i;
+        }
+
+        #endregion
+
         #region Methods
 
         public void Insert(Category category)
@@ -37,10 +55,7 @@ namespace SomethingToCode.DbServices.Masters
             if (category == null)
                 throw new ArgumentNullException("category");
 
-            category.UrlSlug = GlobalCommonHelper.GetSlugURLFromString(category.CategoryName);
-            Category catSlug = GetCategoryBySlugUrl(category.UrlSlug);
-            if (catSlug != null)
-                category.UrlSlug = category.UrlSlug + "-" + 1;
+            category.UrlSlug = GetUniqueSlugFromName(category.CategoryName);
 
             _categoryRepository.Insert(category);
         }
@@ -140,7 +155,7 @@ namespace SomethingToCode.DbServices.Masters
 
             query = query.Where(x => x.UrlSlug.ToLower() == slugUrl.ToLower());
 
-            return query.SingleOrDefault();
+            return query.Take(1).SingleOrDefault();
         }
 
 

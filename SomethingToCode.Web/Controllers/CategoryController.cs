@@ -55,6 +55,7 @@ namespace SomethingToCode.Web.Controllers
             }
 
             Category category = model.ToEntity();
+            category.UserID = 1;
             category.Created = DateTime.UtcNow;
             _categoryService.Insert(category);
 
