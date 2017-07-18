@@ -19,12 +19,18 @@ namespace SomethingToCode.Web.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ICategoryModelFactory _categoryModelFactory;
 
-        public CategoryController(ICategoryService categoryService, 
+        public CategoryController(ICategoryService categoryService,
                                   ICategoryModelFactory categoryModelFactory)
         {
             _categoryService = categoryService;
             _categoryModelFactory = categoryModelFactory;
         }
+
+        #region Utilities
+
+
+
+        #endregion
 
         public ActionResult Index(int? page, string categoryName = "", long userID = 0, bool? IsEnable = null)
         {
@@ -49,6 +55,11 @@ namespace SomethingToCode.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CategoryModel model)
         {
+            if (model.HttpCategryImage != null && !CommonHelper.IsValidImageFormat(model.HttpCategryImage, 1, 2097152))
+            {
+                ModelState.AddModelError("HttpCategryImage", "only jpg & png allowed and size must be 2MB or lower.");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -57,6 +68,7 @@ namespace SomethingToCode.Web.Controllers
             Category category = model.ToEntity();
             category.UserID = 1;
             category.Created = DateTime.UtcNow;
+            category.CategoryImage = CommonHelper.UploadPicture(model.HttpCategryImage, CommonHelper.CategoryImages);
             _categoryService.Insert(category);
 
             TempData["message"] = CommonHelper.GenerateMessage("Category Added Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
@@ -82,7 +94,7 @@ namespace SomethingToCode.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CategoryModel model, int id=0 )
+        public ActionResult Edit(CategoryModel model, int id = 0)
         {
             if (id == 0)
                 return RedirectToAction("Index");
@@ -108,7 +120,7 @@ namespace SomethingToCode.Web.Controllers
         [HttpPost]
         public ActionResult Delete(long id = 0)
         {
-           
+
             return View();
         }
 
