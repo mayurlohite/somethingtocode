@@ -18,6 +18,8 @@ namespace SomethingToCode.Web.Models.Masters.Category
 
         public bool IsEnable { get; set; }
 
+        public string CategoryImage { get; set; }
+
         public HttpPostedFileBase HttpCategryImage { get; set; }
 
         public DateTime Created { get; set; }

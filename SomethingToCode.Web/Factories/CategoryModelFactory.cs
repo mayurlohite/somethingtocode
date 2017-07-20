@@ -51,7 +51,8 @@ namespace SomethingToCode.Web.Factories
             model.CategoryName = category.CategoryName;
             model.Description = category.Description;
             model.IsEnable = category.IsEnable;
-            model.Created = category.Created;            
+            model.Created = category.Created;
+            model.CategoryImage = category.CategoryImage;
         }
 
        

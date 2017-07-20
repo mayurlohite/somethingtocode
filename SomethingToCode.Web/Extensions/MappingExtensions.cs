@@ -18,6 +18,7 @@ namespace SomethingToCode.Web.Extensions
             cm.Description = entity.Description;
             cm.IsEnable = entity.IsEnable;
             cm.Created = entity.Created;
+            cm.CategoryImage = entity.CategoryImage;
             return cm;
         }
 
@@ -29,6 +30,7 @@ namespace SomethingToCode.Web.Extensions
             c.Description = model.Description;
             c.IsEnable = model.IsEnable;
             c.Created = model.Created;
+            c.CategoryImage = model.CategoryImage;
             return c;
         }
 
@@ -39,7 +41,7 @@ namespace SomethingToCode.Web.Extensions
             c.Description = model.Description;
             c.IsEnable = model.IsEnable;
             c.Created = model.Created;
-
+            c.CategoryImage = model.CategoryImage;
             return c;
         }
     }

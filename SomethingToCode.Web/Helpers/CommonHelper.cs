@@ -168,6 +168,11 @@ namespace SomethingToCode.Web.Helpers
             string dbPhotoPath;
             // Checking for Internet Explorer  
 
+            if (image == null)
+            {
+                return null;
+            }
+
             if (HttpContext.Current.Request.Browser.Browser.ToUpper() == "IE" || HttpContext.Current.Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
             {
                 string[] testfiles = image.FileName.Split(new char[] { '\\' });

@@ -103,6 +103,11 @@ namespace SomethingToCode.Web.Controllers
             if (category == null)
                 return RedirectToAction("Index");
 
+            if (model.HttpCategryImage != null && !CommonHelper.IsValidImageFormat(model.HttpCategryImage, 1, 2097152))
+            {
+                ModelState.AddModelError("HttpCategryImage", "only jpg & png allowed and size must be 2MB or lower.");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -110,6 +115,9 @@ namespace SomethingToCode.Web.Controllers
 
             category = model.ToEntity(category);
             category.Modified = DateTime.UtcNow;
+            if (model.HttpCategryImage != null)
+                category.CategoryImage = CommonHelper.UploadPicture(model.HttpCategryImage, CommonHelper.CategoryImages);
+
             _categoryService.Update(category);
 
             TempData["message"] = CommonHelper.GenerateMessage("Category Updated Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
