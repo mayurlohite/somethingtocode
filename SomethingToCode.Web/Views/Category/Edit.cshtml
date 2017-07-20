@@ -1,5 +1,5 @@
-﻿@model SomethingToCode.Web.Models.Masters.Category.CategoryModel
-
+﻿@using SomethingToCode.Web.Helpers;
+@model SomethingToCode.Web.Models.Masters.Category.CategoryModel
 @{
     ViewBag.Title = "Edit Category " + Model.CategoryName;
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -51,7 +51,7 @@
 
                             <div class="form-group">
                                 <label for="inputPassword3">Image Preview</label>
-                                <img src="~/Content/" alt="" />
+                                <img width="150" src="@Url.Content(string.Format("~/{0}/{1}",CommonHelper.CategoryImages,Model.CategoryImage))" alt="@Model.CategoryImage" />
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3">Is Enabled?</label>

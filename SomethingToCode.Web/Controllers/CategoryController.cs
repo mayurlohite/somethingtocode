@@ -128,8 +128,18 @@ namespace SomethingToCode.Web.Controllers
         [HttpPost]
         public ActionResult Delete(long id = 0)
         {
+            if (id == 0)
+                return RedirectToAction("Index");
 
-            return View();
+            var category = _categoryService.GetCategoryById(id);
+            if (category == null)
+                return RedirectToAction("Index");
+
+            _categoryService.Delete(category);
+
+            TempData["message"] = CommonHelper.GenerateMessage("Category Deleted Successfully", CommonHelper.EnumErrorMessages.SUCCESS);
+
+            return RedirectToAction("Index", "Category");
         }
 
 
