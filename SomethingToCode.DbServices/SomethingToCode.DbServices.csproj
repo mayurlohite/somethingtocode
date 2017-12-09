@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Masters\Catelog\CategoryService.cs" />
     <Compile Include="Masters\Catelog\ICategoryService.cs" />
+    <Compile Include="Masters\Tags\ITagService.cs" />
+    <Compile Include="Masters\Tags\TagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

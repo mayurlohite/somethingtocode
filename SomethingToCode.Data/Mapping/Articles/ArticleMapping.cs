@@ -1,6 +1,6 @@
 ﻿using SomethingToCode.Core.Domain.Articles;
 using SomethingToCode.Core.Domain.Masters.Catelog;
-using SomethingToCode.Core.Domain.Masters.Tag;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;

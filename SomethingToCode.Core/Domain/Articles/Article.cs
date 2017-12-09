@@ -1,5 +1,5 @@
 ﻿using SomethingToCode.Core.Domain.Masters.Catelog;
-using SomethingToCode.Core.Domain.Masters.Tag;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using SomethingToCode.Core.Domain.Users;
 using System;
 using System.Collections.Generic;

@@ -53,7 +53,7 @@
     <Compile Include="Domain\Masters\Catelog\Category.cs" />
     <Compile Include="Domain\Articles\ArticleComment.cs" />
     <Compile Include="Domain\Masters\Exception\ExceptionLogger.cs" />
-    <Compile Include="Domain\Masters\Tag\Tag.cs" />
+    <Compile Include="Domain\Masters\Tags\Tag.cs" />
     <Compile Include="Domain\Users\UserAchivement.cs" />
     <Compile Include="Domain\Users\UserEducation.cs" />
     <Compile Include="Domain\Users\User.cs" />

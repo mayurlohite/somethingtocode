@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace SomethingToCode.Core.Domain.Masters.Tag
+namespace SomethingToCode.Core.Domain.Masters.Tags
 {
     public class Tag : BaseEntity
     {

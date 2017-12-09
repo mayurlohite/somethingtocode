@@ -1,12 +1,12 @@
 ﻿using SomethingToCode.Core.Domain.Articles;
 using SomethingToCode.Core.Domain.Masters.Catelog;
 using SomethingToCode.Core.Domain.Masters.Exception;
-using SomethingToCode.Core.Domain.Masters.Tag;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using SomethingToCode.Core.Domain.Users;
 using SomethingToCode.Data.Mapping.Articles;
 using SomethingToCode.Data.Mapping.Masters.Catelog;
 using SomethingToCode.Data.Mapping.Masters.Exception;
-using SomethingToCode.Data.Mapping.Masters.Tag;
+using SomethingToCode.Data.Mapping.Masters.Tags;
 using SomethingToCode.Data.Mapping.Users;
 using System.Data.Entity;
 

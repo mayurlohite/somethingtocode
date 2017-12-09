@@ -55,7 +55,7 @@
     <Compile Include="Mapping\Articles\ArticleCommentMaping.cs" />
     <Compile Include="Mapping\Masters\Catelog\CategoryMapping.cs" />
     <Compile Include="Mapping\Masters\Exception\ExceptionLoggerMapping.cs" />
-    <Compile Include="Mapping\Masters\Tag\TagMapping.cs" />
+    <Compile Include="Mapping\Masters\Tags\TagMapping.cs" />
     <Compile Include="Mapping\Users\UserAchivementMapping.cs" />
     <Compile Include="Mapping\Users\UserEducationMapping.cs" />
     <Compile Include="Mapping\Users\UserMapping.cs" />

@@ -1,5 +1,5 @@
 ﻿using SomethingToCode.Core.Domain.Articles;
-using SomethingToCode.Core.Domain.Masters.Tag;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SomethingToCode.Data.Mapping.Masters.Tag
+namespace SomethingToCode.Data.Mapping.Masters.Tags
 {
-    public class TagMapping : EntityTypeConfiguration<SomethingToCode.Core.Domain.Masters.Tag.Tag>
+    public class TagMapping : EntityTypeConfiguration<SomethingToCode.Core.Domain.Masters.Tags.Tag>
     {
         public TagMapping()
         {
