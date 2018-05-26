@@ -12,6 +12,7 @@ namespace SomethingToCode.Core
         {
             IsEnable = true;
             Created = DateTime.Now;
+            Modified = DateTime.Now;
         }
         public bool IsEnable { get; set; }
         public DateTime Created { get; set; }

@@ -1,4 +1,6 @@
 ﻿using SomethingToCode.Core.Domain.Articles;
+using SomethingToCode.Core.Domain.Masters.Catelog;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -22,6 +24,25 @@ namespace SomethingToCode.Data.Mapping.Articles
             HasRequired(a => a.User)
                .WithMany(u => u.Articles)
                .HasForeignKey(a => a.UserID);
+
+           
+            HasMany<Category>(c => c.Categories)
+                .WithMany(a => a.Articles)
+                .Map(ac =>
+                {
+                    ac.MapLeftKey("ArticleID");
+                    ac.MapRightKey("CategoryID");
+                    ac.ToTable("ArticleCategories");
+                });
+
+            HasMany<Tag>(t => t.Tags)
+               .WithMany(a => a.Articles)
+               .Map(ac =>
+               {
+                   ac.MapLeftKey("ArticleID");
+                   ac.MapRightKey("TagID");
+                   ac.ToTable("ArticleTags");
+               });
         }
     }
 }

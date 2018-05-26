@@ -1,5 +1,6 @@
 ﻿
 using SomethingToCode.Core.Domain.Masters;
+using SomethingToCode.Core.Domain.Masters.Tag;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

@@ -1,4 +1,5 @@
-﻿using SomethingToCode.Core.Domain.Masters;
+﻿
+using SomethingToCode.Core.Domain.Masters.Catelog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

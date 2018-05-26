@@ -15,13 +15,14 @@ namespace SomethingToCode.Data.Mapping.Articles
             ToTable("ArticleTags");
             HasKey(at => at.ArticleTagID);
 
-            HasRequired(at => at.Article)
+            /*HasRequired(at => at.Article)
                .WithMany(a => a.ArticleTags)
                .HasForeignKey(at => at.ArticleID);
 
             HasRequired(at => at.Tag)
               .WithMany(t => t.ArticleTags)
-              .HasForeignKey(at => at.TagID);
+              .HasForeignKey(at => at.TagID)
+              .WillCascadeOnDelete(false);*/
         }
     }
 }

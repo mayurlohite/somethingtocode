@@ -2,6 +2,8 @@
 using Owin;
 using SomethingToCode.Data.Context;
 using SomethingToCode.Data.Repository;
+using SomethingToCode.DbServices.Masters;
+using SomethingToCode.Web.Factories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,6 +36,11 @@ namespace SomethingToCode.Web.App_Start
             container.RegisterType<DbContext, SCContext>(new HierarchicalLifetimeManager());
             container.RegisterType(typeof(IRepository<>), typeof(GenericRepository<>));
 
+            //Services
+            container.RegisterType<ICategoryService, CategoryService>();
+
+            //Factories
+            container.RegisterType<ICategoryModelFactory, CategoryModelFactory>();
 
         }
 

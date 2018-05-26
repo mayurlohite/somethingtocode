@@ -1,4 +1,4 @@
-﻿using SomethingToCode.Core.Domain.Masters;
+﻿using SomethingToCode.Core.Domain.Masters.Exception;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SomethingToCode.Data.Mapping.Masters
+namespace SomethingToCode.Data.Mapping.Masters.Exception
 {
     public class ExceptionLoggerMapping : EntityTypeConfiguration<ExceptionLogger>
     {

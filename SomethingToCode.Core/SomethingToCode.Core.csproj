@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,17 +50,16 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Domain\Articles\Article.cs" />
-    <Compile Include="Domain\Articles\ArticleCategory.cs" />
-    <Compile Include="Domain\Articles\ArticleTag.cs" />
-    <Compile Include="Domain\Masters\Category.cs" />
+    <Compile Include="Domain\Masters\Catelog\Category.cs" />
     <Compile Include="Domain\Articles\ArticleComment.cs" />
-    <Compile Include="Domain\Masters\ExceptionLogger.cs" />
-    <Compile Include="Domain\Masters\Tag.cs" />
+    <Compile Include="Domain\Masters\Exception\ExceptionLogger.cs" />
+    <Compile Include="Domain\Masters\Tags\Tag.cs" />
     <Compile Include="Domain\Users\UserAchivement.cs" />
     <Compile Include="Domain\Users\UserEducation.cs" />
     <Compile Include="Domain\Users\User.cs" />
     <Compile Include="Domain\Users\UserSkill.cs" />
     <Compile Include="Domain\Users\UserWork.cs" />
+    <Compile Include="Helpers\GlobalCommonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

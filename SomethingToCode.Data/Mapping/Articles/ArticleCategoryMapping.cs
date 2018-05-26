@@ -15,13 +15,17 @@ namespace SomethingToCode.Data.Mapping.Articles
             ToTable("ArticleCategories");
             HasKey(ac => ac.ArticleCategoryID);
 
-            HasRequired(ac => ac.Article)
-               .WithMany(a => a.ArticleCategories)
-               .HasForeignKey(ac => ac.ArticleID);
+            /*HasRequired(ac => ac.Article)
+                .WithMany(a => a.ArticleCategories)
+                .HasForeignKey(ac => ac.ArticleID);
 
-            HasRequired(ac => ac.Category)
-              .WithMany(c => c.ArticleCategories)
-              .HasForeignKey(ac => ac.CategoryID);
+             HasRequired(ac => ac.Category)
+               .WithMany(c => c.ArticleCategories)
+               .HasForeignKey(ac => ac.CategoryID);*/
+
+          
+
+          
         }
     }
 }

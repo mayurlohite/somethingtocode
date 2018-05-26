@@ -1,15 +1,14 @@
 ﻿using SomethingToCode.Core.Domain.Articles;
-using SomethingToCode.Core.Domain.Masters;
+using SomethingToCode.Core.Domain.Masters.Catelog;
+using SomethingToCode.Core.Domain.Masters.Exception;
+using SomethingToCode.Core.Domain.Masters.Tags;
 using SomethingToCode.Core.Domain.Users;
 using SomethingToCode.Data.Mapping.Articles;
-using SomethingToCode.Data.Mapping.Masters;
+using SomethingToCode.Data.Mapping.Masters.Catelog;
+using SomethingToCode.Data.Mapping.Masters.Exception;
+using SomethingToCode.Data.Mapping.Masters.Tags;
 using SomethingToCode.Data.Mapping.Users;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SomethingToCode.Data.Context
 {
@@ -32,9 +31,7 @@ namespace SomethingToCode.Data.Context
         public DbSet<ExceptionLogger> ExceptionLoggers { get; set; }
 
         public DbSet<Article> Articles { get; set; }
-        public DbSet<ArticleCategory> ArticleCategories { get; set; }
         public DbSet<ArticleComment> ArticleComments { get; set; }
-        public DbSet<ArticleTag> ArticleTags { get; set; }
 
 
         public new DbSet<TEntity> Set<TEntity>() where TEntity : class
@@ -57,10 +54,9 @@ namespace SomethingToCode.Data.Context
             modelBuilder.Configurations.Add(new ExceptionLoggerMapping());
 
             //Article Mapping
-            modelBuilder.Configurations.Add(new ArticleCategoryMapping());
             modelBuilder.Configurations.Add(new ArticleCommentMapping());
             modelBuilder.Configurations.Add(new ArticleMapping());
-            modelBuilder.Configurations.Add(new ArticleTagMapping());
+           
         }
     }
 }
